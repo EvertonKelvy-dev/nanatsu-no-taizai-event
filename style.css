@@ -12,7 +12,7 @@ body {
     height: 100vh;
     max-width: 100vw;
     color: #fff;
-    background: url(./Imagens/merlin-fundo.jpg) center center no-repeat;
+    background: url(merlin-fundo.jpg) center center no-repeat;
     background-size: cover;
     display: flex;
     font-family: "IM Fell Great Primer SC", serif;
@@ -54,7 +54,7 @@ body {
     line-height: 1.2em;
 }
 .cabecalho h2::before {
-    content: url(./Imagens/coração.png);
+    content: url(coração.png);
     margin: 0;
     position: relative;
     top: 5px;
@@ -165,7 +165,7 @@ body {
 
 .styled-separator::before,
 .styled-separator::after {
-    content: url(./Imagens/coração.png); /* Corrigido: era coraçãopng */
+    content: url(.coração.png); /* Corrigido: era coraçãopng */
     position: absolute;
     top: 50%;
     transform: translateY(-50%) scale(0.4); /* Corrigido: era 4.0 */
