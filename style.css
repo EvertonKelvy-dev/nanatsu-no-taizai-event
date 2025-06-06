@@ -1,26 +1,50 @@
 @charset "UTF-8";
 
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=IM+Fell+Great+Primer+SC&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Wallpoet&display=swap');
-/* Importe a fonte Poppins com pesos finos (já está no seu @import, o que é ótimo!) */
-/* Se quiser testar outra fonte fina, como 'Lato' ou 'Montserrat', adicione aqui: */
-/* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap'); */
+/* FONTES */
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=IM+Fell+Great+Primer+SC&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Wallpoet&display=swap');
 
-
-body {
+/* RESET E BACKGROUND */
+*, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    height: 100vh;
-    max-width: 100vw;
-    color: #fff;
+}
+
+html {
     background: url(merlin-fundo.jpg) center center no-repeat;
     background-size: cover;
-    display: flex;
-    font-family: "IM Fell Great Primer SC", serif;
-    justify-content: center;
-    align-items: center;
+    background-attachment: fixed;
+    background-color: #000;
+    height: 100%;
 }
-:root {
-    font-size: 16px;
+
+body {
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: start; /* centralizado no desktop via media query */
+    font-family: "IM Fell Great Primer SC", serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: transparent;
+    width: 100%;
+}
+
+/* ===================== */
+
+.container {
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    background-color: rgba(12, 6, 19, 0.753);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 40px;
+    box-shadow: 0 4px 8px #2a0033;
+    border: 2px solid #2a0033;
+    margin: 20px auto;
+    padding: 0 0 20px 0;
 }
 
 .cabecalho {
@@ -28,10 +52,12 @@ body {
     border-top: #2a0033 2px solid;
     background-color: #1f0538;
     width: 100%;
-    box-sizing: border-box;
     border-top-left-radius: 38px;
     border-top-right-radius: 38px;
-    padding: 10px 0;
+    padding: 10px 0 0 0;
+}
+.tp {
+    text-align: center;
 }
 .tp h1 {
     font-size: 1.8em;
@@ -40,10 +66,6 @@ body {
     margin-top: 0px;
     color: #dbccdf;
     text-shadow: 1px 1px 2px #2a0033;
-    line-height: 1.2em;
-}
-.tp {
-    text-align: center;
 }
 .cabecalho h2 {
     font-size: 1.2em;
@@ -51,7 +73,6 @@ body {
     margin-bottom: 0px;
     font-weight: 400;
     color: #dbccdf;
-    line-height: 1.2em;
 }
 .cabecalho h2::before {
     content: url(coração.png);
@@ -62,29 +83,11 @@ body {
     vertical-align: middle;
     display: inline-block;
     transform: scale(0.6);
-    transform-origin: center center;
 }
 
-.container {
-    height: auto;
-    width: 40%;
-    min-width: 280px;
-    max-width: 400px;
-    text-align: center;
-    background-color: rgba(12, 6, 19, 0.753);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    border-radius: 40px;
-    box-shadow: 0 4px 8px #2a0033;
-    border: 2px solid #2a0033;
-    margin: 0 auto; 
-    padding-bottom: 20px;
-    
-    
-}
+/* ===================== */
 
-.content-section {
+.content-selection {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -92,14 +95,10 @@ body {
     gap: 25px;
 }
 
-
-
 .event-title {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.1rem; /* Use rem para consistência */
+    font-size: 1.1rem;
     font-weight: 600;
-    margin-top: 0;
-    margin-bottom: 10px;
     color: #dbccdf;
     text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
 }
@@ -107,33 +106,28 @@ body {
 .timer-display {
     display: flex;
     justify-content: center;
-    align-items: baseline; /* 'baseline' geralmente funciona bem para números e dois pontos */
-    gap: 3px; /* Espaço pequeno entre números e separadores */
-    margin-bottom: 0px; /* Reduzir para que as labels fiquem mais próximas */
+    align-items: baseline;
+    gap: 3px;
+    margin-bottom: 0px;
 }
 
 .timer-number {
-    /* **MUDANÇA PRINCIPAL AQUI PARA O ASPECTO FINO** */
-    font-family: "Poppins", sans-serif; /* Usar Poppins ou outra fonte fina */
-    font-weight: 200; /* Deixar bem fino (100 a 300 são bons para isso) */
-    font-size: 2.8rem; /* Tamanho dos números */
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-size: 2.8rem;
     color: #fff;
-    /* Brilho sutil como o do Butterfly Paradise */
-    text-shadow: 0 0 5px #e0b0ff, /* Brilho roxo claro */
-     0 0 15px rgba(224, 176, 255, 0.3); /* Brilho mais espalhado */
-    line-height: 1em; /* Garante que não haja espaço extra acima/abaixo do número */
+    text-shadow: 0 0 5px #e0b0ff, 0 0 15px rgba(224, 176, 255, 0.3);
+    line-height: 1em;
 }
 
 .timer-separator {
-    /* **Ajustar separadores** */
-    font-family: "Poppins", sans-serif; /* Mesma fonte fina dos números */
-    font-size: 1.8rem; /* Tamanho do separador */
-    font-weight: 200; /* Mesma espessura dos números */
-    color: #ff00ff; /* Cor do Butterfly Paradise */
+    font-family: "Poppins", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 200;
+    color: #ff00ff;
     text-shadow: 0 0 5px #ff00ff;
-    /* Ajuste o margin para controlar o espaço entre o ':' e os números */
-    margin: 0 2px; /* Pequeno espaço horizontal */
-    line-height: 1em; /* Garante que não haja espaço extra */
+    margin: 0 2px;
+    line-height: 1em;
 }
 
 .timer-labels {
@@ -142,42 +136,38 @@ body {
     font-family: "Poppins", sans-serif;
     font-size: 0.8rem;
     color: #ccc;
-    /* **MUDANÇA AQUI PARA O ESPAÇO ENTRE NÚMEROS E LABELS** */
-    margin-top: 2px; /* Reduzir o margin-top para aproximar das labels (era 5px) */
+    margin-top: 2px;
     padding: 0 10px;
 }
 
 .label {
     text-transform: uppercase;
     font-weight: 500;
+    text-align: center;
 }
 
 .styled-separator {
     width: 80%;
     height: 2px;
     background-color: #2a0033;
-    margin: 0 auto;
+    margin: 20px auto;
     border-radius: 1px;
     position: relative;
-    margin-top: 20px; /* Espaço acima do separador */
-    margin-bottom: 20px; /* Espaço abaixo do separador */
 }
-
 .styled-separator::before,
 .styled-separator::after {
-    content: url(.coração.png); /* Corrigido: era coraçãopng */
+    content: url(coração.png);
     position: absolute;
     top: 50%;
-    transform: translateY(-50%) scale(0.4); /* Corrigido: era 4.0 */
-    display: inline-block;
+    transform: translateY(-50%) scale(0.4);
 }
-
 .styled-separator::before {
     left: -10px;
 }
 .styled-separator::after {
     right: -10px;
 }
+
 .final-text {
     font-family: "Poppins", sans-serif;
     font-size: 1rem;
@@ -187,85 +177,63 @@ body {
     text-shadow: 0 0 3px #ff00ff;
 }
 
-/* ========================================= */
-/* MEDIA QUERIES (ATUALIZE ESTAS SEÇÕES TAMBÉM) */
-/* ========================================= */
-
+/* ===================== */
+/* MEDIA QUERIES */
 @media (max-width: 600px) {
     .timer-number {
-        font-size: 2.2rem; /* Ajuste para mobile */
+        font-size: 2.2rem;
     }
     .timer-separator {
-        font-size: 1.3rem; /* Ajuste para mobile */
-        margin: 0 1px; /* Espaço menor em mobile */
-    }
-    .timer-display {
-        gap: 2px; /* Pequeno gap para mobile */
+        font-size: 1.3rem;
     }
     .event-title {
         font-size: 1rem;
     }
     .timer-labels {
         font-size: 0.7rem;
-        padding: 0 5px;
-        margin-top: 1px; /* Ajuste para mobile */
     }
-    .styled-separator {
-        width: 70%;
-        margin-top: 15px; /* Ajuste para mobile */
-        margin-bottom: 15px; /* Ajuste para mobile */
-    }
-    .styled-separator::before,
-    .styled-separator::after {
-        transform: translateY(-50%) scale(0.3); /* Corações menores em mobile */
-    }
-
     .container {
-        width: 90%;
-        min-width: unset;
-        max-width: 95%;
-        height: auto;
-        min-height: unset;
-        
-    }
-    .cabecalho {
-        padding: 5px 0;
-        border-top-left-radius: 38px;
-        border-top-right-radius: 38px;
-    }
-    .cabecalho h2 {
-        font-size: 1rem;
-        padding: 0 5px;
-        margin-bottom: 0px;
-    }
-    .tp h1 {
-        font-size: 1.5rem;
-        padding: 0 5px;
-        margin-top: 0px;
-    }
-    .cabecalho h2::before {
-        top: 3px;
-        transform: scale(0.5);
+        width: 95%;
+        padding-top: 15px;
+        padding-bottom: 15px;
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 375px) {
     .timer-number {
-        font-size: 1.9rem;
+        font-size: 1.8rem;
     }
     .timer-separator {
         font-size: 1.1rem;
     }
     .timer-labels {
-        font-size: 0.6rem; /* Ajuste para mobile muito pequeno */
+        font-size: 0.6rem;
     }
-    .cabecalho h2 {
+}
+
+@media (max-width: 320px) {
+    .timer-number {
+        font-size: 1.6rem;
+    }
+    .timer-separator {
         font-size: 0.9rem;
     }
+    .timer-labels {
+        font-size: 0.55rem;
+    }
     .tp h1 {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
+    }
+    .cabecalho h2 {
+        font-size: 0.8rem;
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        align-items: center;
     }
     .container {
-        min-width: 90%;
+        margin: 40px auto;
     }
 }
