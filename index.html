@@ -155,5 +155,45 @@
     </div>
         </section>
     </div>
+
+    <audio id="bg-music" src="natsu-opening1.mp3" preload="auto" loop></audio>
+<script>
+ window.addEventListener('click', () => {
+  const audio = document.getElementById('bg-music');
+  setTimeout(() => {
+    audio.volume = 0.3;
+    audio.play();
+  }, 1200); // 1,2 s de delay
+}, { once: true });
+</script>
+ <script>
+  window.addEventListener('click', (e) => {
+    const audio = document.getElementById('bg-music');
+    setTimeout(() => {
+      audio.volume = 0.3;
+      audio.play();
+    }, 1200);
+
+    // cria partículas
+    for (let i = 0; i < 10; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('magic-particle');
+
+      const x = e.clientX || e.touches?.[0]?.clientX || 0;
+      const y = e.clientY || e.touches?.[0]?.clientY || 0;
+
+      const offsetX = (Math.random() - 0.5) * 100;
+      const offsetY = (Math.random() - 0.5) * 100;
+
+      particle.style.left = `${x + offsetX}px`;
+      particle.style.top = `${y + offsetY}px`;
+
+      document.body.appendChild(particle);
+
+      setTimeout(() => particle.remove(), 800);
+    }
+  }, { once: false }); // deixa ativado pra cada toque
+</script>
+
 </body>
 </html>
