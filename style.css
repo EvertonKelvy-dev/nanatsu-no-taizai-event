@@ -1,159 +1,400 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NNT: Nanatsu no Taizai Event </title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="Favicons/poção.ico" type="image/x-icon">
-</head>
-<body>
-    <div class="container">
-        <div class="cabecalho">
-            <header>
-                <h2 class="tp">NNT</h2>
-                <div class="tp"><h1>Nanatsu no Taizai Event</h1></div>
-            </header>
-        </div>
+@charset "UTF-8";
 
-        <section class="content-selection">
+/* FONTES */
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=IM+Fell+Great+Primer+SC&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Wallpoet&display=swap');
 
-            <!-- ACT 1 -->
-            <div class="timer-block">
-               <BR></BR> <p class="event-title"> ATIVIDADE  1 : </p>
-                <div class="timer-row">
-                    <div class="timer-unit">
-                        <span class="timer-number">00</span>
-                        <span class="label">Days</span>
-                    </div>
-                    <span class="timer-separator">:</span>
-                    <div class="timer-unit">
-                        <span class="timer-number">00</span>
-                        <span class="label">Hrs</span>
-                    </div>
-                    <span class="timer-separator">:</span>
-                    <div class="timer-unit">
-                        <span class="timer-number">00</span>
-                        <span class="label">Mins</span>
-                    </div>
-                    <span class="timer-separator">:</span>
-                    <div class="timer-unit">
-                        <span class="timer-number">00</span>
-                        <span class="label">Secs</span>
-                    </div>
-                </div>
-            </div>
+/* RESET */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-            <div class="styled-separator"></div>
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    background: url(merlin-fundo.jpg) center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "IM Fell Great Primer SC", serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: #fff;
+}
 
-            <!-- ACT 2 -->
-            <div class="timer-block">
-                <p class="event-title">ATIVIDADE 2 :</p>
-                <div class="timer-row">
-                    <div class="timer-unit">
-                        <span class="timer-number">00</span>
-                        <span class="label">Days</span>
-                    </div>
-                    <span class="timer-separator">:</span>
-                    <div class="timer-unit">
-                        <span class="timer-number">00</span>
-                        <span class="label">Hrs</span>
-                    </div>
-                    <span class="timer-separator">:</span>
-                    <div class="timer-unit">
-                        <span class="timer-number">00</span>
-                        <span class="label">Mins</span>
-                    </div>
-                    <span class="timer-separator">:</span>
-                    <div class="timer-unit">
-                        <span class="timer-number">00</span>
-                        <span class="label">Secs</span>
-                    </div>
-                </div>
-            </div>
+:root {
+    font-size: 16px;
+}
 
-            <div class="styled-separator"></div>
+/* CONTAINER */
+.container {
+    width: 90%;
+    max-width: 400px;
+    background-color: rgba(12, 6, 19, 0.753);
+    display: flex;
+    flex-direction: column;
+    border-radius: 40px;
+    box-shadow: 0 4px 8px #2a0033;
+    border: 2px solid #2a0033;
+    margin: auto;
+    padding-bottom: 20px;
+    flex-shrink: 0;
+    text-align: center;
+}
 
-            <!-- ACT 3 -->
-            <div class="timer-block">
-                <p class="event-title">ATIVIDADE 3 :</p>
-                <div class="timer-row">
-                    <div class="timer-unit">
-                        <span class="timer-number">00</span>
-                        <span class="label">Days</span>
-                    </div>
-                    <span class="timer-separator">:</span>
-                    <div class="timer-unit">
-                        <span class="timer-number">00</span>
-                        <span class="label">Hrs</span>
-                    </div>
-                    <span class="timer-separator">:</span>
-                    <div class="timer-unit">
-                        <span class="timer-number">00</span>
-                        <span class="label">Mins</span>
-                    </div>
-                    <span class="timer-separator">:</span>
-                    <div class="timer-unit">
-                        <span class="timer-number">00</span>
-                        <span class="label">Secs</span>
-                    </div>
-                </div>
-            </div>
+/* CABEÇALHO */
+.cabecalho {
+    background-color: #1f0538;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: #2a0033 2px solid;
+    border-top: #2a0033 2px solid;
+    border-top-left-radius: 38px;
+    border-top-right-radius: 38px;
+}
 
-            <div class="styled-separator"></div>
+.tp h1 {
+    font-size: 1.8em;
+    font-weight: 400;
+    padding: 0 5px;
+    color: #dbccdf;
+    text-shadow: 1px 1px 2px #2a0033;
+    line-height: 1.2em;
+}
 
-            <!-- FINAL -->
-            <div class="timer-block">
-                <p class="event-title">BÔNUS :</p>
-                <div class="timer-row">
-                    <div class="timer-unit">
-                        <span class="timer-number">00</span>
-                        <span class="label">Days</span>
-                    </div>
-                    <span class="timer-separator">:</span>
-                    <div class="timer-unit">
-                        <span class="timer-number">00</span>
-                        <span class="label">Hrs</span>
-                    </div>
-                    <span class="timer-separator">:</span>
-                    <div class="timer-unit">
-                        <span class="timer-number">00</span>
-                        <span class="label">Mins</span>
-                    </div>
-                    <span class="timer-separator">:</span>
-                    <div class="timer-unit">
-                        <span class="timer-number">00</span>
-                        <span class="label">Secs</span>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="styled-separator"></div>
+.tp {
+    text-align: center;
+}
 
-<div class="timer-block">
-    <p class="event-title">REGISTRO :</p>
-    <div class="timer-row">
-        <div class="timer-unit">
-            <span class="timer-number">00</span>
-            <span class="label">Days</span>
-        </div>
-        <span class="timer-separator">:</span>
-        <div class="timer-unit">
-            <span class="timer-number">00</span>
-            <span class="label">Hrs</span>
-        </div>
-        <span class="timer-separator">:</span>
-        <div class="timer-unit">
-            <span class="timer-number">00</span>
-            <span class="label">Mins</span>
-        </div>
-        <span class="timer-separator">:</span>
-        <div class="timer-unit">
-            <span class="timer-number">00</span>
-            <span class="label">Secs</span>
-        </div>
-    </div>
-        </section>
-    </div>
-</body>
-</html>
+.cabecalho h2 {
+    font-size: 1.2em;
+    padding: 0.5px;
+    font-weight: 400;
+    color: #dbccdf;
+    line-height: 1.2em;
+}
+
+.cabecalho h2::before {
+    content: url(coração.png);
+    position: relative;
+    top: 5px;
+    padding: 0 5px;
+    vertical-align: middle;
+    display: inline-block;
+    transform: scale(0.6);
+}
+
+/* TEXTO */
+.event-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #dbccdf;
+    text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+}
+
+/* CRONÔMETRO NOVO */
+.timer-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: nowrap;
+}
+
+.timer-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 45px;
+}
+
+.timer-unit .timer-number {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-size: 2.8rem;
+    color: #fff;
+    text-shadow: 0 0 5px #e0b0ff, 0 0 15px rgba(224, 176, 255, 0.3);
+    line-height: 1em;
+}
+
+.timer-unit .label {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.8rem;
+    color: #ccc;
+    margin-top: 4px;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: center;
+}
+
+.timer-row .timer-separator {
+    font-family: "Poppins", sans-serif;
+    font-size: 2rem;
+    font-weight: 200;
+    color: #ff00ff;
+    text-shadow: 0 0 5px #ff00ff;
+    margin: 0 4px;
+    line-height: 1em;
+    position: relative;
+    top: -10px;
+}
+
+/* SEPARADOR */
+.styled-separator {
+    width: 80%;
+    height: 2px;
+    background-color: #2a0033;
+    margin: 20px auto;
+    border-radius: 1px;
+    position: relative;
+}
+
+.styled-separator::before,
+.styled-separator::after {
+    content: url(coração.png);
+    position: absolute;
+    top: 10%;
+    transform: translateY(-50%) scale(0.4);
+    display: inline-block;
+}
+
+.styled-separator::before {
+    left: -15px;
+}
+.styled-separator::after {
+    right: -15px;
+}
+
+.final-text {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #dbccdf;
+    margin-top: 15px;
+    text-shadow: 0 0 3px #ff00ff;
+}
+
+
+/*ANIMAÇÃO DO CABEÇALHO*/
+@keyframes headerReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cabecalho {
+  animation: headerReveal 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+/*FIM DA ANIMAÇÃO DO CABEÇALHO*/
+
+
+/*ANIMAÇÃO DO .CONTENT*/
+@keyframes containerFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.container {
+  animation: containerFadeIn 1s ease-out forwards;
+}
+
+
+/*FIM DA ANIMAÇÃO DO .CONTENT*/
+
+
+
+/* ANIMAÇÃO DO CRONÔMETRO */
+
+
+
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.timer-block {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.timer-block:nth-child(1) { animation-delay: 0.2s; }
+.timer-block:nth-child(3) { animation-delay: 0.4s; }
+.timer-block:nth-child(5) { animation-delay: 0.6s; }
+.timer-block:nth-child(7) { animation-delay: 0.8s; }
+.timer-block:nth-child(9) { animation-delay: 1s; }
+
+
+/* ANIMAÇÃO DO CRONÔMETRO FIM */
+
+/* ANIMAÇÃO DE PULSO DOS NÚMEROS */
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow: 0 0 5px #e0b0ff, 0 0 10px #ff00ff;
+  }
+  50% {
+    text-shadow: 0 0 15px #fff, 0 0 30px #ff00ff;
+  }
+}
+
+.timer-number {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* ANIMAÇÃO DE PULSO DOS NÚMEROS FIM */
+
+
+
+
+/*PASSOU O MOUSE EM CIMA DO CRONOMETRO ? DA UMA GIRADINHA DE LEVE*/
+.timer-block:hover {
+  transform: scale(1.03) rotate(0.5deg);
+  transition: all 0.3s ease-in-out;
+}
+/*FIM DO HOVER*/
+
+
+/*CORAÇÕES ANIMAÇÃO*/
+@keyframes wiggleHeart {
+  0%, 100% {
+    transform: translateY(-50%) scale(0.4) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-50%) scale(0.4) rotate(-5deg);
+  }
+  75% {
+    transform: translateY(-50%) scale(0.4) rotate(5deg);
+  }
+}
+
+.styled-separator::before,
+.styled-separator::after {
+  animation: wiggleHeart 1.5s infinite ease-in-out;
+}
+
+/*FIM DOS CORAÇÕES ANIMAÇÃO*/
+
+
+/* MEDIA QUERIES */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        max-width: unset;
+        margin: 30px auto;
+    }
+    .cabecalho {
+        padding: 5px 0;
+        border-top-left-radius: 38px;
+        border-top-right-radius: 38px;
+    }
+    .cabecalho h2 {
+        font-size: 0.9rem;
+    }
+    .tp h1 {
+        font-size: 1.3rem;
+    }
+    .cabecalho h2::before {
+        top: 2px;
+        transform: scale(0.4);
+    }
+    .event-title {
+        font-size: 1rem;
+    }
+    .timer-unit .timer-number {
+        font-size: 2.2rem;
+    }
+    .timer-unit .label {
+        font-size: 0.7rem;
+    }
+    .timer-row .timer-separator {
+        font-size: 1.3rem;
+        margin: 0 2px;
+    }
+    .styled-separator {
+        margin: 15px auto;
+    }
+    .styled-separator::before,
+    .styled-separator::after {
+        transform: translateY(-50%) scale(0.25);
+        left: -8px;
+        right: -8px;
+    }
+}
+
+@media (max-width: 375px) {
+    .timer-unit .timer-number {
+        font-size: 1.8rem;
+    }
+    .timer-unit .label {
+        font-size: 0.6rem;
+    }
+    .timer-row .timer-separator {
+        font-size: 1rem;
+        margin: 0 1px;
+    }
+    .container {
+        width: 98%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .styled-separator::before,
+    .styled-separator::after {
+        transform: translateY(-50%) scale(0.2);
+        left: -5px;
+        right: -5px;
+    }
+}
+
+@media (max-width: 320px) {
+    .timer-unit .timer-number {
+        font-size: 1.6rem;
+    }
+    .timer-unit .label {
+        font-size: 0.55rem;
+    }
+    .cabecalho h2 {
+        font-size: 0.8rem;
+    }
+    .tp h1 {
+        font-size: 1.1rem;
+    }
+    .container {
+        width: 99%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .cabecalho {
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+    }
+    .styled-separator::before,
+    .styled-separator::after {
+        transform: translateY(-50%) scale(0.18);
+        left: -3px;
+        right: -3px;
+    }
+}
