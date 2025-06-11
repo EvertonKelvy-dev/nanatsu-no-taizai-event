@@ -41,23 +41,33 @@ html, body {
     box-shadow: 0 4px 8px #2a0033;
     border: 2px solid #2a0033;
     margin: auto;
-    padding-bottom: 20px;
+    padding-bottom: 0; /* Removido o padding inferior para evitar a "sombra" */
     flex-shrink: 0;
     text-align: center;
 }
 
 /* CABEÇALHO */
 .cabecalho {
-    background:url(purplewitch.png) center center no-repeat;
-    background-size: cover;
+    /* Remova background-image, background-size, background-repeat, background-position */
     width: 100%;
-    padding: 50px 0;
+    height: auto; /* A altura será definida pela imagem interna */
     border-bottom: #2a0033 2px solid;
     border-top: #2a0033 2px solid;
     border-top-left-radius: 38px;
     border-top-right-radius: 38px;
+    overflow: hidden; /* Importante para manter os cantos arredondados */
+    display: flex; /* Para centralizar a imagem dentro do cabeçalho */
+    justify-content: center;
+    align-items: center;
 }
 
+.cabecalho img {
+    width: 100%; /* Faz a imagem ocupar 100% da largura do cabeçalho */
+    height: auto; /* Mantém a proporção da imagem sem cortá-la */
+    display: block; /* Remove o espaço extra abaixo da imagem que pode ocorrer com imagens inline */
+    animation: headerReveal 1s ease-out forwards; /* Certifique-se que esta linha está presente */
+    animation-delay: 0.5s; /* E esta também */
+}
 
 /* TEXTO */
 .event-title {
@@ -164,7 +174,8 @@ html, body {
   }
 }
 
-.cabecalho {
+/* A animação agora é aplicada diretamente à imagem dentro do cabeçalho */
+.cabecalho img {
   animation: headerReveal 1s ease-out forwards;
   animation-delay: 0.5s;
 }
@@ -194,8 +205,6 @@ html, body {
 
 
 /* ANIMAÇÃO DO CRONÔMETRO */
-
-
 
 
 @keyframes fadeInUp {
@@ -303,19 +312,14 @@ html, body {
         margin: 30px auto;
     }
     .cabecalho {
-        padding: 50px 0;
+        padding:0;
         border-top-left-radius: 38px;
         border-top-right-radius: 38px;
     }
-    .cabecalho h2 {
-        font-size: 0.9rem;
-    }
-    .tp h1 {
-        font-size: 1.3rem;
-    }
-    .cabecalho h2::before {
-        top: 2px;
-        transform: scale(0.4);
+    /* Removido .cabecalho h2 e .tp h1 pois eles não existem mais no HTML */
+    .cabecalho img { /* Ajusta a imagem dentro do cabeçalho nas media queries */
+        width: 100%;
+        height: auto;
     }
     .event-title {
         font-size: 1rem;
@@ -372,12 +376,7 @@ html, body {
     .timer-unit .label {
         font-size: 0.55rem;
     }
-    .cabecalho h2 {
-        font-size: 0.8rem;
-    }
-    .tp h1 {
-        font-size: 1.1rem;
-    }
+    /* Removido .cabecalho h2 e .tp h1 pois eles não existem mais no HTML */
     .container {
         width: 99%;
         margin-top: 10px;
@@ -387,7 +386,7 @@ html, body {
     .cabecalho {
         border-top-left-radius: 30px;
         border-top-right-radius: 30px;
-        padding:50px 0px;
+        padding:0px;
     }
     .styled-separator::before,
     .styled-separator::after {
