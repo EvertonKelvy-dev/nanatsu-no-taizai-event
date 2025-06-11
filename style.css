@@ -41,32 +41,31 @@ html, body {
     box-shadow: 0 4px 8px #2a0033;
     border: 2px solid #2a0033;
     margin: auto;
-    padding-bottom: 0; /* Removido o padding inferior para evitar a "sombra" */
+    padding-bottom: 0; 
     flex-shrink: 0;
     text-align: center;
 }
 
 /* CABEÇALHO */
 .cabecalho {
-    /* Remova background-image, background-size, background-repeat, background-position */
     width: 100%;
-    height: auto; /* A altura será definida pela imagem interna */
+    height: auto; 
     border-bottom: #2a0033 2px solid;
     border-top: #2a0033 2px solid;
     border-top-left-radius: 38px;
     border-top-right-radius: 38px;
-    overflow: hidden; /* Importante para manter os cantos arredondados */
-    display: flex; /* Para centralizar a imagem dentro do cabeçalho */
+    overflow: hidden; 
+    display: flex; 
     justify-content: center;
     align-items: center;
 }
 
 .cabecalho img {
-    width: 100%; /* Faz a imagem ocupar 100% da largura do cabeçalho */
-    height: auto; /* Mantém a proporção da imagem sem cortá-la */
-    display: block; /* Remove o espaço extra abaixo da imagem que pode ocorrer com imagens inline */
-    animation: headerReveal 1s ease-out forwards; /* Certifique-se que esta linha está presente */
-    animation-delay: 0.5s; /* E esta também */
+    width: 100%; 
+    height: auto; 
+    display: block;
+    animation: headerReveal 1s ease-out forwards; 
+    animation-delay: 0.5s; 
 }
 
 /* TEXTO */
@@ -317,7 +316,7 @@ html, body {
         border-top-right-radius: 38px;
     }
     /* Removido .cabecalho h2 e .tp h1 pois eles não existem mais no HTML */
-    .cabecalho img { /* Ajusta a imagem dentro do cabeçalho nas media queries */
+    .cabecalho img { 
         width: 100%;
         height: auto;
     }
@@ -376,7 +375,6 @@ html, body {
     .timer-unit .label {
         font-size: 0.55rem;
     }
-    /* Removido .cabecalho h2 e .tp h1 pois eles não existem mais no HTML */
     .container {
         width: 99%;
         margin-top: 10px;
