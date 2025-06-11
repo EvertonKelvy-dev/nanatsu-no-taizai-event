@@ -13,7 +13,7 @@
 html, body {
     width: 100%;
     min-height: 100vh;
-    background: url(merlin-fundo.jpg) center center no-repeat;
+    background: url(backgroundnnt.png) center center no-repeat;
     background-size: cover;
     background-attachment: fixed;
     display: flex;
@@ -24,6 +24,7 @@ html, body {
     overflow-y: auto;
     color: #fff;
 }
+
 
 :root {
     font-size: 16px;
@@ -47,45 +48,16 @@ html, body {
 
 /* CABEÇALHO */
 .cabecalho {
-    background-color: #1f0538;
+    background:url(purplewitch.png) center center no-repeat;
+    background-size: cover;
     width: 100%;
-    padding: 10px 0;
+    padding: 50px 0;
     border-bottom: #2a0033 2px solid;
     border-top: #2a0033 2px solid;
     border-top-left-radius: 38px;
     border-top-right-radius: 38px;
 }
 
-.tp h1 {
-    font-size: 1.8em;
-    font-weight: 400;
-    padding: 0 5px;
-    color: #dbccdf;
-    text-shadow: 1px 1px 2px #2a0033;
-    line-height: 1.2em;
-}
-
-.tp {
-    text-align: center;
-}
-
-.cabecalho h2 {
-    font-size: 1.2em;
-    padding: 0.5px;
-    font-weight: 400;
-    color: #dbccdf;
-    line-height: 1.2em;
-}
-
-.cabecalho h2::before {
-    content: url(coração.png);
-    position: relative;
-    top: 5px;
-    padding: 0 5px;
-    vertical-align: middle;
-    display: inline-block;
-    transform: scale(0.6);
-}
 
 /* TEXTO */
 .event-title {
@@ -331,7 +303,7 @@ html, body {
         margin: 30px auto;
     }
     .cabecalho {
-        padding: 5px 0;
+        padding: 50px 0;
         border-top-left-radius: 38px;
         border-top-right-radius: 38px;
     }
@@ -410,10 +382,12 @@ html, body {
         width: 99%;
         margin-top: 10px;
         margin-bottom: 10px;
+        
     }
     .cabecalho {
         border-top-left-radius: 30px;
         border-top-right-radius: 30px;
+        padding:50px 0px;
     }
     .styled-separator::before,
     .styled-separator::after {
