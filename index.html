@@ -100,30 +100,28 @@
 
     <audio id="bg-music" src="natsu-opening1.mp3" preload="auto" loop></audio>
 
+    
     <script>
+    // Função de contagem regressiva
     document.addEventListener('DOMContentLoaded', () => {
         const deadlines = [
-            new Date(Date.UTC(2025, 5, 17, 3, 3, 0)),   // Atividade 1
-            new Date(Date.UTC(2025, 5, 19, 3, 3, 0)),   // Atividade 2
-            new Date(Date.UTC(2025, 5, 21, 3, 3, 0)),   // Atividade 3
-            new Date(Date.UTC(2025, 5, 22, 2, 59, 0)),  // Bônus
-            new Date(Date.UTC(2025, 5, 23, 3, 3, 0))    // Registro
+            new Date('2025-06-17T00:00:00'),
+            new Date('2025-06-19T00:01:00'),
+            new Date('2025-06-21T00:02:00'),
+            new Date('2025-06-22T00:03:00'),
+            new Date('2025-06-23T00:03:00')
         ];
 
         const blocks = document.querySelectorAll('.timer-block');
 
-        function getBrazilTime() {
-            const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' }));
-            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-            return new Date(utc - 3 * 60 * 60000);
-        }
-
         function updateTimers() {
-            const nowInBrazil = getBrazilTime();
+            const now = new Date(new Date().toLocaleString("en-US", {
+                timeZone: "America/Sao_Paulo"
+            }));
 
             blocks.forEach((block, index) => {
                 const numbers = block.querySelectorAll('.timer-number');
-                const diff = deadlines[index] - nowInBrazil;
+                const diff = deadlines[index] - now;
 
                 let days = 0, hours = 0, minutes = 0, seconds = 0;
 
@@ -141,16 +139,14 @@
                     String(seconds).padStart(2, '0')
                 ];
 
-                numbers.forEach((num, i) => {
-                    num.textContent = values[i];
-                });
+                numbers.forEach((num, i) => num.textContent = values[i]);
             });
-
-            requestAnimationFrame(updateTimers);
         }
 
-        requestAnimationFrame(updateTimers);
+        setInterval(updateTimers, 1000);
+        updateTimers();
     });
+
 
     window.addEventListener('click', (e) => {
         const audio = document.getElementById('bg-music');
