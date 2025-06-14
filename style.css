@@ -315,7 +315,6 @@ html, body {
         border-top-left-radius: 38px;
         border-top-right-radius: 38px;
     }
-    /* Removido .cabecalho h2 e .tp h1 pois eles não existem mais no HTML */
     .cabecalho img { 
         width: 100%;
         height: auto;
