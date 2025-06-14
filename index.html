@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NNT: Nanatsu no Taizai Event </title>
+    <title>NNT: Nanatsu no Taizai Event</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="Favicons/poção.ico" type="image/x-icon">
 </head>
 <body>
+    
     <div class="container">
-        <div class="cabecalho">
-            <header>
-                <img src="purplewitch.png" alt="Purple Witch Banner">
-            </header>
-        </div>
-        <br>
+        <header class="cabecalho">
+            <img src="purplewitch.png" alt="Purple Witch Banner">
+        </header> 
+        
         <section class="content-selection">
-
-            <!-- Atividade 1 -->
+             
+            <!-- ATIVIDADE 1 -->
             <div class="timer-block">
-               <p class="event-title"> ATIVIDADE  1 : </p>
+                <p class="event-title">ACTIVITY 1:</p>
                 <div class="timer-row">
                     <div class="timer-unit"><span class="timer-number">00</span><span class="label">Days</span></div>
                     <span class="timer-separator">:</span>
@@ -33,9 +32,9 @@
 
             <div class="styled-separator"></div>
 
-            <!-- Atividade 2 -->
+            <!-- ATIVIDADE 2 -->
             <div class="timer-block">
-                <p class="event-title">ATIVIDADE 2 :</p>
+                <p class="event-title">ACTIVITY  2:</p>
                 <div class="timer-row">
                     <div class="timer-unit"><span class="timer-number">00</span><span class="label">Days</span></div>
                     <span class="timer-separator">:</span>
@@ -49,9 +48,9 @@
 
             <div class="styled-separator"></div>
 
-            <!-- Atividade 3 -->
+            <!-- ATIVIDADE 3 -->
             <div class="timer-block">
-                <p class="event-title">ATIVIDADE 3 :</p>
+                <p class="event-title">ACTIVITY  3:</p>
                 <div class="timer-row">
                     <div class="timer-unit"><span class="timer-number">00</span><span class="label">Days</span></div>
                     <span class="timer-separator">:</span>
@@ -65,9 +64,9 @@
 
             <div class="styled-separator"></div>
 
-            <!-- Bônus -->
+            <!-- BÔNUS -->
             <div class="timer-block">
-                <p class="event-title">BÔNUS :</p>
+                <p class="event-title">BONUS:</p>
                 <div class="timer-row">
                     <div class="timer-unit"><span class="timer-number">00</span><span class="label">Days</span></div>
                     <span class="timer-separator">:</span>
@@ -81,9 +80,9 @@
 
             <div class="styled-separator"></div>
 
-            <!-- Registro -->
+            <!-- REGISTRO -->
             <div class="timer-block">
-                <p class="event-title">REGISTRO :</p>
+                <p class="event-title">REGISTRATION:</p>
                 <div class="timer-row">
                     <div class="timer-unit"><span class="timer-number">00</span><span class="label">Days</span></div>
                     <span class="timer-separator">:</span>
@@ -96,30 +95,35 @@
             </div>
 
         </section>
-        <br>
+
     </div>
 
     <audio id="bg-music" src="natsu-opening1.mp3" preload="auto" loop></audio>
 
     <script>
-    // Função de contagem regressiva
     document.addEventListener('DOMContentLoaded', () => {
         const deadlines = [
-            new Date('2025-06-17T00:00:00'),
-            new Date('2025-06-19T00:01:00'),
-            new Date('2025-06-21T00:02:00'),
-            new Date('2025-06-22T00:03:00'),
-            new Date('2025-06-23T00:03:00')
+            new Date(Date.UTC(2025, 5, 17, 3, 3, 0)),   // Atividade 1
+            new Date(Date.UTC(2025, 5, 19, 3, 3, 0)),   // Atividade 2
+            new Date(Date.UTC(2025, 5, 21, 3, 3, 0)),   // Atividade 3
+            new Date(Date.UTC(2025, 5, 22, 2, 59, 0)),  // Bônus
+            new Date(Date.UTC(2025, 5, 23, 3, 3, 0))    // Registro
         ];
 
         const blocks = document.querySelectorAll('.timer-block');
 
-        function updateTimers() {
+        function getBrazilTime() {
             const now = new Date();
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            return new Date(utc - 3 * 60 * 60000);
+        }
+
+        function updateTimers() {
+            const nowInBrazil = getBrazilTime();
 
             blocks.forEach((block, index) => {
                 const numbers = block.querySelectorAll('.timer-number');
-                const diff = deadlines[index] - now;
+                const diff = deadlines[index] - nowInBrazil;
 
                 let days = 0, hours = 0, minutes = 0, seconds = 0;
 
@@ -137,30 +141,33 @@
                     String(seconds).padStart(2, '0')
                 ];
 
-                numbers.forEach((num, i) => num.textContent = values[i]);
+                numbers.forEach((num, i) => {
+                    num.textContent = values[i];
+                });
             });
+
+            requestAnimationFrame(updateTimers);
         }
 
-        setInterval(updateTimers, 1000);
-        updateTimers();
+        requestAnimationFrame(updateTimers);
     });
-    </script>
 
-    <script>
-    // Música e Partículas Mágicas
     window.addEventListener('click', (e) => {
         const audio = document.getElementById('bg-music');
-        setTimeout(() => {
-            audio.volume = 0.3;
-            audio.play();
-        }, 1200);
+        if (audio.paused) {
+            setTimeout(() => {
+                audio.volume = 0.3;
+                audio.play().catch(() => {});
+            }, 1200);
+        }
 
         for (let i = 0; i < 10; i++) {
             const particle = document.createElement('div');
             particle.classList.add('magic-particle');
 
-            const x = e.clientX || e.touches?.[0]?.clientX || 0;
-            const y = e.clientY || e.touches?.[0]?.clientY || 0;
+            const x = e.clientX || (e.touches && e.touches[0].clientX) || 0;
+            const y = e.clientY || (e.touches && e.touches[0].clientY) || 0;
+
             const offsetX = (Math.random() - 0.5) * 100;
             const offsetY = (Math.random() - 0.5) * 100;
 
@@ -168,9 +175,12 @@
             particle.style.top = `${y + offsetY}px`;
 
             document.body.appendChild(particle);
-            setTimeout(() => particle.remove(), 800);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 800);
         }
-    }, { once: false });
+    }, { passive: true });
     </script>
 
 </body>
